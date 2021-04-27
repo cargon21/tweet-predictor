@@ -5,5 +5,5 @@ This tweet predictor was part of a Suffolk University data science project. In t
 Breakdown of the Project:
 
 1. Folder StudentsData contains Tweets from students and entrepreneurs 
-2. interpretData.py interprets and calculates various statiscics on the student and entrepreneur tweets.
+2. interpretData.py interprets and calculates various statistics on the student and entrepreneur tweets.
 3. Processing.py applies machine learning algorithms (clustering, random forest, and logistic regression)
