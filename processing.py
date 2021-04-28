@@ -1,3 +1,10 @@
+#------------------------------------------------------------------------------
+# - Carson Sytner
+# - Honors Data Science Project
+# - This program applies machine learning algorithms to tweet data from students
+#   and entrepreneurs to predict who wrote a given tweet
+#------------------------------------------------------------------------------
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -58,7 +65,9 @@ y_predicted = km.fit_predict(scaled_data)
 
 scaled_data["g"] = y_predicted
 
-scaled_data.plot.scatter(x = "Avg len", y = "RT Freq", c = "g", cmap = "Accent")
+scaled_data.plot.scatter(x = "Emoji Freq", y = "URL Freq", c = "g", cmap = "Accent")
+plt.savefig("kmeans.png")
+plt.clf()
 
 # RandomForests and Logistic Regression
 #-----------------------------------------------------------------------------
@@ -110,4 +119,18 @@ phase_lr_cm = confusion(X_train, X_test, y_train_p, y_test_p,  "lr", ["P0", "P1"
 
 both_rf_cm = confusion(X_train, X_test, y_train_b, y_test_b,  "rf", ["S_P0", "S_P1", "S_P2", "E_P0", "E_P1", "E_P2"])
 both_lr_cm = confusion(X_train, X_test, y_train_b, y_test_b,  "lr", ["S_P0", "S_P1", "S_P2", "E_P0", "E_P1", "E_P2"])
+#%%-----------------------------------------------------------------------------
+plt.imshow(both_lr_cm, cmap="spring")
+plt.xticks(range(6), ["S_P0", "S_P1", "S_P2", "E_P0", "E_P1", "E_P2"])
+plt.yticks(range(6), ["S_P0", "S_P1", "S_P2", "E_P0", "E_P1", "E_P2"])
+plt.colorbar()
+plt.savefig("lr.png")
+plt.clf()
+
+#%%-----------------------------------------
+
+plt.savefig("rf.png")
+plt.clf()
+
+
 
